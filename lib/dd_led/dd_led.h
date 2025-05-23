@@ -3,14 +3,14 @@
 
 #include <Arduino.h>
 
-class DD_Led {
-public:
-    DD_Led(int pin);  // Конструктор, принимающий пин, к которому подключен светодиод
-    void ledOn();     // Метод для включения светодиода
-    void ledOff();    // Метод для выключения светодиода
+typedef struct dd_led {
+    int led_pin;
+} dd_led_t; //алиас, псевдоним для структуры
 
-private:
-    int ledPin;       // Пин, к которому подключен светодиод
-};
+void dd_led_setup(dd_led_t *led, int pin);
+
+void dd_turn_led_on(dd_led_t *led);
+
+void dd_turn_led_off(dd_led_t *led);
 
 #endif
